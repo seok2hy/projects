@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjs.meltube.mappers.PlaylistMusicMappingMapper">
+    <delete id="deleteAllByPlaylistIndex">
+        DELETE
+        FROM `meltube`.`playlist_music_mappings`
+        WHERE `playlist_index` = #{playlistIndex}
+    </delete>
+
+    <insert id="insert"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index">
+        INSERT INTO `meltube`.`playlist_music_mappings` (`playlist_index`, `music_index`)
+        VALUES (#{playlistMusicMapping.playlistIndex}, #{playlistMusicMapping.musicIndex})
+    </insert>
+
+    <select id="selectAllByPlaylistIndexAsMusic" resultType="com.hjs.meltube.entities.MusicEntity">
+        SELECT `T1`.`index`         AS `index`,
+               `T1`.`user_email`    AS `userEmail`,
+               `T1`.`artist`        AS `artist`,
+               `T1`.`album`         AS `album`,
+               `T1`.`name`          AS `name`,
+               `T1`.`genre`         AS `genre`,
+               `T1`.`lyrics`        AS `lyrics`,
+               `T1`.`release_date`  AS `releaseDate`,
+               `T1`.`youtube_id`    AS `youtubeId`,
+               `T1`.`status`        AS `status`,
+               `T1`.`denied_reason` AS `deniedReason`,
+               `T1`.`created_at`    AS `createdAt`,
+               `T1`.`updated_at`    AS `updatedAt`,
+               `T1`.`is_deleted`    AS `isDeleted`
+        FROM `meltube`.`playlist_music_mappings` AS `T0`
+                 LEFT JOIN `meltube`.`musics` AS `T1` ON `T0`.`music_index` = `T1`.`index`
+        WHERE `T0`.`playlist_index` = #{playlistIndex}
+    </select>
+</mapper>

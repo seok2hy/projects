@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjs.meltube.mappers.MusicMapper">
+    <delete id="deleteByIndex">
+        DELETE FROM `meltube`.`musics`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </delete>
+
+    <insert id="insert"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index">
+        INSERT INTO `meltube`.`musics` (`user_email`, `artist`, `album`, `name`, `genre`, `lyrics`, `release_date`, `cover_image_data`, `cover_image_name`, `cover_image_content_type`, `youtube_id`, `status`, `denied_reason`, `created_at`, `updated_at`, `is_deleted`)
+        VALUES (#{music.userEmail},
+                #{music.artist},
+                #{music.album},
+                #{music.name},
+                #{music.genre},
+                #{music.lyrics},
+                #{music.releaseDate},
+                #{music.coverImageData},
+                #{music.coverImageName},
+                #{music.coverImageContentType},
+                #{music.youtubeId},
+                #{music.status},
+                #{music.deniedReason},
+                #{music.createdAt},
+                #{music.updatedAt},
+                #{music.isDeleted})
+    </insert>
+
+    <select id="search" resultType="com.hjs.meltube.vos.MusicVo">
+        SELECT `T0`.`index`                                                              AS `index`,
+               `T0`.`user_email`                                                         AS `userEmail`,
+               `T0`.`artist`                                                             AS `artist`,
+               `T0`.`album`                                                              AS `album`,
+               `T0`.`name`                                                               AS `name`,
+               `T0`.`genre`                                                              AS `genre`,
+               `T0`.`lyrics`                                                             AS `lyrics`,
+               `T0`.`release_date`                                                       AS `releaseDate`,
+               `T0`.`youtube_id`                                                         AS `youtubeId`,
+               `T0`.`status`                                                             AS `status`,
+               `T0`.`denied_reason`                                                      AS `deniedReason`,
+               `T0`.`created_at`                                                         AS `createdAt`,
+               `T0`.`updated_at`                                                         AS `updatedAt`,
+               `T0`.`is_deleted`                                                         AS `isDeleted`,
+               (SELECT COUNT(0)
+                FROM `meltube`.`music_user_likes` AS `T1`
+                WHERE `T0`.`index` = `T1`.`music_index`)                                 AS `likeCount`,
+               IF(#{userEmail} IS NULL, FALSE, (SELECT COUNT(0) > 0
+                                                FROM `meltube`.`music_user_likes` AS `T1`
+                                                WHERE `T0`.`index` = `T1`.`music_index`
+                                                  AND `T1`.`user_email` = #{userEmail})) AS `isLiked`
+        FROM `meltube`.`musics` AS `T0`
+        WHERE `T0`.`status` = 'ALLOWED'
+          AND `T0`.`is_deleted` = FALSE
+          AND (REPLACE(`T0`.`artist`, ' ', '') LIKE CONCAT('%', REPLACE(#{keyword}, ' ', ''), '%') OR
+               REPLACE(`T0`.`album`, ' ', '') LIKE CONCAT('%', REPLACE(#{keyword}, ' ', ''), '%') OR
+               REPLACE(`T0`.`name`, ' ', '') LIKE CONCAT('%', REPLACE(#{keyword}, ' ', ''), '%'))
+    </select>
+
+    <select id="selectByIndex" resultType="com.hjs.meltube.entities.MusicEntity">
+        SELECT `index`         AS `index`,
+               `user_email`    AS `userEmail`,
+               `artist`        AS `artist`,
+               `album`         AS `album`,
+               `name`          AS `name`,
+               `genre`         AS `genre`,
+               `lyrics`        AS `lyrics`,
+               `release_date`  AS `releaseDate`,
+               `youtube_id`    AS `youtubeId`,
+               `status`        AS `status`,
+               `denied_reason` AS `deniedReason`,
+               `created_at`    AS `createdAt`,
+               `updated_at`    AS `updatedAt`,
+               `is_deleted`    AS `isDeleted`
+        FROM `meltube`.`musics`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+
+    <select id="selectByIndexWithCover" resultType="com.hjs.meltube.entities.MusicEntity">
+        SELECT `index`                    AS `index`,
+               `user_email`               AS `userEmail`,
+               `artist`                   AS `artist`,
+               `album`                    AS `album`,
+               `name`                     AS `name`,
+               `genre`                    AS `genre`,
+               `lyrics`                   AS `lyrics`,
+               `release_date`             AS `releaseDate`,
+               `cover_image_data`         AS `coverImageData`,
+               `cover_image_name`         AS `coverImageName`,
+               `cover_image_content_type` AS `coverImageContentType`,
+               `youtube_id`               AS `youtubeId`,
+               `status`                   AS `status`,
+               `denied_reason`            AS `deniedReason`,
+               `created_at`               AS `createdAt`,
+               `updated_at`               AS `updatedAt`,
+               `is_deleted`               AS `isDeleted`
+        FROM `meltube`.`musics`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+
+    <select id="selectByUserEmail" resultType="com.hjs.meltube.entities.MusicEntity">
+        SELECT `index`         AS `index`,
+               `user_email`    AS `userEmail`,
+               `artist`        AS `artist`,
+               `album`         AS `album`,
+               `name`          AS `name`,
+               `genre`         AS `genre`,
+               `lyrics`        AS `lyrics`,
+               `release_date`  AS `releaseDate`,
+               `youtube_id`    AS `youtubeId`,
+               `status`        AS `status`,
+               `denied_reason` AS `deniedReason`,
+               `created_at`    AS `createdAt`,
+               `updated_at`    AS `updatedAt`,
+               `is_deleted`    AS `isDeleted`
+        FROM `meltube`.`musics`
+        WHERE `user_email` = #{userEmail}
+        ORDER BY `created_at` DESC
+    </select>
+
+    <select id="selectCountByYoutubeId" resultType="java.lang.Integer">
+        SELECT COUNT(0)
+        FROM `meltube`.`musics`
+        WHERE `youtube_id` = #{youtubeId}
+    </select>
+</mapper>

@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+@use "sass:color";
+@import "../../_def";
+
+$player-controller-height: 4.0625rem;
+
+#main > .player {
+  @include flex(column, stretch, flex-start);
+  display: none;
+  position: sticky;
+  bottom: 0;
+
+  &:has(> .playlist[data-mt-visible]) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  &[data-mt-visible] {
+    display: flex;
+  }
+
+  > .playlist {
+    @include flex(column, stretch, flex-start);
+    @include fixedHeight(calc(100% - $player-controller-height));
+    backdrop-filter: blur(0.5rem);
+    background: #141315;
+    background: linear-gradient(60deg, #141315e0 0%, #21181ee0 100%);
+    display: none;
+
+    &[data-mt-visible] {
+      display: flex;
+    }
+
+    > .button-container {
+      @include flex(row, center, flex-start, 0.5rem);
+      padding: 0.875rem 1.25rem;
+
+      > .stretch {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+
+      > .label {
+        padding: 0.125rem;
+
+        > input:checked + .icon {
+          filter: brightness(100%);
+        }
+
+        > .icon {
+          @include fixedSize(1.25rem);
+          filter: brightness(50%);
+          transition-duration: 175ms;
+          transition-property: filter;
+          transition-timing-function: ease;
+        }
+      }
+    }
+
+    > .list {
+      @include flex(column, stretch, flex-start);
+
+      > .message {
+        @include flex(column, center, center, 0.5rem);
+        color: $global-color-text-darken-30;
+        display: none;
+        line-height: 1.375;
+        padding: 2rem 0;
+        text-align: center;
+
+        &[data-mt-visible] {
+          display: flex;
+        }
+      }
+
+      > .item {
+        @include flex(row, center, flex-start, 0.75rem);
+        border-top: 0.0625rem solid $global-color-border-lighten-5;
+        padding: 0.625rem 1.25rem;
+
+        &.-playing {
+          color: #2ecc71;
+          font-weight: 500;
+        }
+
+        &:last-child {
+          border-bottom: 0.0625rem solid $global-color-border-lighten-5;
+        }
+
+        > .cover {
+          @include fixedSize(2.25rem);
+          border: 0.0625rem solid $global-color-border;
+          border-radius: 0.25rem;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        > .name {
+          @include flex(column, stretch, flex-start, 0.25rem);
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          > .artist {
+            color: $global-color-text-darken-30;
+            font-size: 0.825rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  > .progress {
+    height: 0.1rem;
+    background-color: $global-color-background-lighten-5;
+    position: relative;
+
+    > .value {
+      top: 0;
+      left: 0;
+      width: 33%;
+      height: 100%;
+      background-color: $global-color-concept;
+      position: absolute;
+      z-index: 0;
+    }
+
+    > .pointer {
+      top: 50%;
+      left: 33%;
+      width: 0.625rem;
+      height: 0.625rem;
+      background-color: $global-color-concept;
+      border-radius: 999rem;
+      cursor: pointer;
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+      transform-origin: top left;
+      transition-duration: 100ms;
+      transition-property: width, height;
+      transition-timing-function: ease;
+      z-index: 1;
+
+      &:hover {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      &:active {
+        width: 0.825rem;
+        height: 0.825rem;
+      }
+    }
+  }
+
+  > .controller {
+    @include flex(row, center, flex-start, 0.75rem);
+    @include fixedHeight($player-controller-height);
+    backdrop-filter: blur(0.5rem);
+    background: #141315;
+    background: linear-gradient(60deg, #141315e0 0%, #21181ee0 100%);
+    border-top: 0.1rem solid $global-color-border;
+    cursor: pointer;
+    padding: 0.875rem 1.25rem;
+
+    > .cover {
+      @include fixedSize(2.25rem);
+      border: 0.0625rem solid $global-color-border;
+      border-radius: 0.25rem;
+      object-fit: cover;
+      object-position: center;
+      overflow: hidden;
+    }
+
+    > .caption {
+      @include flex(column, stretch, center, 0.125rem);
+
+      > .name,
+      > .artist {
+        max-width: 7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      > .artist {
+        color: $global-color-text-darken-30;
+        font-size: 0.825rem;
+        font-weight: 400;
+      }
+    }
+
+    > .time {
+      color: $global-color-text-darken-30;
+      font-size: 0.825rem;
+      font-weight: 400;
+    }
+
+    > .button-container {
+      @include flex(row, center, center, 0.5rem);
+
+      > button {
+        cursor: pointer;
+        display: none;
+
+        &:hover > .icon {
+          filter: brightness(100%);
+        }
+
+        &[data-mt-visible] {
+          display: revert;
+        }
+
+        &[name="play"],
+        &[name="pause"] > .icon {
+          @include fixedSize(2rem);
+        }
+
+        > .icon {
+          @include fixedSize(1.5rem);
+          filter: brightness(90%);
+          transition-duration: 175ms;
+          transition-property: filter;
+          transition-timing-function: ease;
+        }
+      }
+    }
+  }
+}

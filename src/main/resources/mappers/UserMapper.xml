@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjs.meltube.mappers.UserMapper">
+    <insert id="insert">
+        INSERT INTO `meltube`.`users` (`email`, `password`, `nickname`, `created_at`, `is_admin`, `is_deleted`, `is_suspended`)
+        VALUES (#{user.email}, #{user.password}, #{user.nickname}, #{user.createdAt}, #{user.isAdmin}, #{user.isDeleted}, #{user.isSuspended})
+    </insert>
+
+    <select id="selectCountByEmail" resultType="java.lang.Integer">
+        SELECT COUNT(0)
+        FROM `meltube`.`users`
+        WHERE `email` = #{email}
+    </select>
+
+    <select id="selectCountByNickname" resultType="java.lang.Integer">
+        SELECT COUNT(0)
+        FROM `meltube`.`users`
+        WHERE `nickname` = #{nickname}
+    </select>
+
+    <select id="selectByEmail" resultType="com.hjs.meltube.entities.UserEntity">
+        SELECT `email`        AS `email`,
+               `password`     AS `password`,
+               `nickname`     AS `nickname`,
+               `created_at`   AS `createdAt`,
+               `is_admin`     AS `isAdmin`,
+               `is_deleted`   AS `isDeleted`,
+               `is_suspended` AS `isSuspended`
+        FROM `meltube`.`users`
+        WHERE `email` = #{email}
+        LIMIT 1
+    </select>
+</mapper>

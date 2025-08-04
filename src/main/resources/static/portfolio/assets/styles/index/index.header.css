@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+#header {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    animation: slideDown 1s ease-out;
+}
+
+#header > .content {
+
+    text-align: center;
+}
+
+#header > .content > .text > .wise-saying {
+    border-bottom: none;
+
+    opacity: 0;
+    /*transform: translateY(1.25rem);*/
+    animation: fadeUp 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+#header > .content > .text > .about {
+    line-height: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+    animation-delay: 3s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+#header > .content > .text > .about > span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#header > .content > .text > .about > span > img {
+    transform: translateY(0);
+    width: 2rem;
+    height: 2rem;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-6.25rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#header > .content > .tree-animation {
+    position: relative;
+    width: 9.375rem;
+    height: 16.75rem;
+    margin: 0 auto 2rem;
+}
+
+#header > .content > .tree-animation > .seed {
+    width: 1.875rem;
+    height: 1.875rem;
+    background: #A52A2A;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 3.75rem;
+
+    animation: growSeed 1.2s ease-out forwards;
+}
+
+#header > .content > .tree-animation > .water {
+    width: 0.75rem;
+    height: 1.125rem;
+    background: #00bcd4;
+    border-radius: 50%;
+    position: absolute;
+    top: -0.25rem;
+    left: 4.3125rem;
+    opacity: 0;
+
+    animation: dropWater 1s 0.5s ease-out forwards;
+}
+
+#header > .content > .tree-animation > .sprout {
+    position: absolute;
+    bottom: 1.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+
+    animation: growSprout 2s 1.5s ease-out forwards;
+}
+
+#header > .content > .tree-animation > .sprout > .stem {
+    background: #008000;
+    width: 0.2rem;
+    margin: 0 auto;
+    opacity: 0;
+
+    transform-origin: bottom;
+    animation: stemGrow 1s 1.8s ease-out forwards;
+}
+
+#header > .content > .tree-animation > .sprout > .leaf {
+    background: #4caf50;
+    border-radius: 50%;
+    width: 1.4rem;
+    height: 0.9375rem;
+    top: 0.225rem;
+    opacity: 0;
+
+    position: absolute;
+}
+
+#header > .content > .tree-animation > .sprout > .leaf.left {
+    left: -1.125rem;
+    transform: rotate(-30deg);
+    animation: leafGrow 1s 2.2s ease-out forwards;
+}
+
+#header > .content > .tree-animation > .sprout > .leaf.right {
+    right: -1.125rem;
+    transform: rotate(30deg);
+    animation: leafGrow 1s 2.4s ease-out forwards;
+}
+
+@keyframes growSeed {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dropWater {
+    0% {
+        top: -0.25rem;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    50% {
+        top: 0;
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        top: 1rem;
+        opacity: 0;
+        transform: scale(0.6);
+    }
+}
+
+@keyframes growSprout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes stemGrow {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+    100% {
+        height: 4.25rem;
+        opacity: 1;
+    }
+}
+
+@keyframes leafGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#header > #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+#header > #navbar.navbar-color {
+    background-color: #000000;
+
+}
+
+#header > #navbar > .nav-container {
+    width: 100%;
+    padding: 0 17.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+#header > #navbar > .nav-container > .nav-logo {
+    margin: 0;
+}
+
+#header > #navbar > .nav-container > .nav-logo a {
+    color: #00c2ff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+#header > #navbar.navbar-color > .nav-container > .nav-logo a{
+    color: #eeeeee;
+}
+
+#header > #navbar > .nav-container > .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0;
+}
+
+#header > #navbar > .nav-container > .nav-menu a {
+    color: #00c2ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    margin: 0;
+}
+
+#header > #navbar.navbar-color > .nav-container > .nav-menu a {
+    color: #eeeeee;
+}
+
+#header > #navbar > .nav-container > .nav-menu a:hover {
+    color: #00c2ff;
+}
+
+[id$="Hooks"]:not(#skillHooks) {
+    scroll-margin-top: 3.75rem;
+}
+
+#header > #navbar > .nav-container > .menu-toggle {
+    color: #00c2ff;
+    display: none;
+    margin-bottom: 0;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #header > #navbar > .nav-container > .nav-menu {
+        display: none;
+        position: absolute;
+        top: 3.75rem;
+        right: 0;
+        background-color: #000000;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    #header > #navbar > .nav-container > .nav-menu.active {
+        display: flex;
+    }
+
+    #header > #navbar > .nav-container > .menu-toggle {
+        z-index: 1100;
+        display: block;
+    }
+
+    #header > #navbar {
+        background-color: #000000;
+    }
+
+    #header > #navbar > .nav-container > .nav-logo a {
+        color: #eeeeee;
+    }
+
+    #header > #navbar > .nav-container > .menu-toggle {
+        color: #eeeeee;
+    }
+
+    #header > #navbar > .nav-container > .nav-menu a {
+        color: #eeeeee;
+    }
+
+    #header > #navbar > .nav-container {
+        padding: 0 4.5vw;
+    }
+}

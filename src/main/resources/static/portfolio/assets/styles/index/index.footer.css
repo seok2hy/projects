@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#footer {
+    height: 5rem;
+    width: 100%;
+
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#footer > .copyright-container {
+    height: 100%;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

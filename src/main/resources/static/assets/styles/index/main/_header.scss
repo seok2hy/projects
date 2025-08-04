@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+@import "../../_def";
+
+#main > .header {
+  @include flex(row, center, flex-start, 0.75rem);
+  padding: 0.875rem 1.25rem;
+
+  > .logo {
+    @include fixedSize(1.5rem);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  > .menu {
+    @include fixedSize(1.25rem);
+    cursor: pointer;
+
+    > .icon {
+      @include fixedSize(100%);
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}

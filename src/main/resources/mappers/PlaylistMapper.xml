@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjs.meltube.mappers.PlaylistMapper">
+    <insert id="insert"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index">
+        INSERT INTO `meltube`.`playlists` (`user_email`, `name`, `created_at`, `updated_at`)
+        VALUES (#{playlist.userEmail}, #{playlist.name}, #{playlist.createdAt}, #{playlist.updatedAt})
+    </insert>
+
+    <select id="selectByIndex" resultType="com.hjs.meltube.entities.PlaylistEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `name`       AS `name`,
+               `created_at` AS `createdAt`,
+               `updated_at` AS `updatedAt`
+        FROM `meltube`.`playlists`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+
+    <select id="selectByUserEmailAndName" resultType="com.hjs.meltube.entities.PlaylistEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `name`       AS `name`,
+               `created_at` AS `createdAt`,
+               `updated_at` AS `updatedAt`
+        FROM `meltube`.`playlists`
+        WHERE `user_email` = #{userEmail}
+          AND `name` = #{name}
+        LIMIT 1
+    </select>
+
+    <select id="selectAllByUserEmail" resultType="com.hjs.meltube.entities.PlaylistEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `name`       AS `name`,
+               `created_at` AS `createdAt`,
+               `updated_at` AS `updatedAt`
+        FROM `meltube`.`playlists`
+        WHERE `user_email` = #{userEmail}
+    </select>
+
+    <select id="selectAllMusicsByIndex" resultType="com.hjs.meltube.entities.MusicEntity">
+        SELECT T1.`index`         AS `index`,
+               T1.`user_email`    AS `userEmail`,
+               T1.`artist`        AS `artist`,
+               T1.`album`         AS `album`,
+               T1.`name`          AS `name`,
+               T1.`genre`         AS `genre`,
+               T1.`lyrics`        AS `lyrics`,
+               T1.`release_date`  AS `releaseDate`,
+               T1.`youtube_id`    AS `youtubeId`,
+               T1.`status`        AS `status`,
+               T1.`denied_reason` AS `deniedReason`,
+               T1.`created_at`    AS `createdAt`,
+               T1.`updated_at`    AS `updatedAt`,
+               T1.`is_deleted`    AS `isDeleted`
+        FROM `meltube`.`playlist_music_mappings` AS `T0`
+                 LEFT JOIN `meltube`.`musics` AS `T1` ON `T0`.`music_index` = T1.`index`
+        WHERE `T0`.`playlist_index` = #{index}
+    </select>
+
+    <update id="update" parameterType="com.hjs.meltube.entities.PlaylistEntity">
+        UPDATE `meltube`.`playlists`
+        SET `user_email` = #{playlist.userEmail},
+            `name`       = #{playlist.name},
+            `created_at` = #{playlist.createdAt},
+            `updated_at` = #{playlist.updatedAt}
+        WHERE `index` = #{playlist.index}
+        LIMIT 1
+    </update>
+</mapper>

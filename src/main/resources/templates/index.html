@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Portfolio</title>
+    <link rel="stylesheet" href="/portfolio/assets/styles/common.css">
+    <link rel="stylesheet" href="/portfolio/assets/styles/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div id="topHook"></div>
+<header id="header">
+    <div id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="#topHook"> JS Portfolio</a></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#skillHooks">Skills</a>
+                <a href="#educationHooks">Education</a>
+                <a href="#projectHooks">Projects</a>
+                <a href="#certificateHooks">Certificates</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="tree-animation">
+            <div class="water"></div>
+            <div class="seed"></div>
+            <div class="sprout">
+                <div class="stem"></div>
+                <div class="leaf left"></div>
+                <div class="leaf right"></div>
+            </div>
+        </div>
+        <div class="text">
+            <h1 class="wise-saying">Make it, Don't fall</h1>
+            <span class="about">
+                <span>안녕하세요, 신입 웹 개발자 현재석입니다.</span>
+                <span>사용자 중심의 UI/UX와 편의성에 관심이 많습니다.</span>
+                <span>웹 기술을 기반으로 꾸준히 성장하고 있습니다.</span>
+                <span>
+                    <img src="/portfolio/assets/images/main.intro.email.png" alt="mail">
+                    iki39230316@gmail.com
+                </span>
+                <span>
+                    <img src="/portfolio/assets/images/main.intro.tel.png" alt="tel">
+                    010-5871-9008
+                </span>
+                <span>
+                    <img src="/portfolio/assets/images/main.intro.git.png" alt="git">
+                    <a href="https://github.com/seok2hy">https://github.com/seok2hy</a>
+                </span>
+            </span>
+        </div>
+    </div>
+</header>
+
+<a id="topAnchor" href="#topHook">
+    <img alt="상단" class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR4nO3Y7WqDQBSE4b2FQBvauxSdAefqCvlTGvrHpLSX07KQQJJ+Snb1SOeFBUGD+3hAiCk555xzzjnnCtS27Q3JbV75OC0xSbckB5LveQF4BXCXFjiJ4QB4yesAGhYzGZ1P4q1pmvuu69Yk94uZjL5AHM9lDIBdeIx+QJxeExqjPyDCYzQCERajC8SYDYXB6ApEGIwKIGbHqCBiNowqICbH6ARR60aqjZkCUR2jCRHVMHMgit97TkSxPURAXL2Xi1dsiD9Cfd+vSD6PwgB4OiIyKgVJ5w94++sPSD4AeIwwie8+ZgDYfDrpnHPOOefcv+kDYSKI54Bf8tkAAAAASUVORK5CYII=">
+</a>
+<main id="main">
+    <div id="skillHooks"></div>
+    <h1>Skills.</h1>
+    <div class="skills reveal">
+        <table id="table">
+            <thead>
+            <tr>
+                <th>구분</th>
+                <th>많이 해보았어요</th>
+                <th>해본적 있어요</th>
+            </tr>
+            </thead>
+            <tbody id="wrapper">
+            <tr>
+                <th>Language</th>
+                <td id="languageList">
+                    <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white" alt="java">
+                    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" alt="python">
+                    <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+                    <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+                    <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+                </td>
+                <td>
+                    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=black" alt="typescript">
+                </td>
+            </tr>
+            <tr>
+                <th>Library</th>
+                <td>
+                    <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=Chart.js&logoColor=black" alt="chart">
+                    <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jQuery&logoColor=black" alt="jQuery">
+                    <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=Axios&logoColor=black" alt="axios">
+                </td>
+                <td>
+                    <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black" alt="react">
+                </td>
+            </tr>
+            <tr>
+                <th>Framework</th>
+                <td>
+                    <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=black" alt="spring">
+                    <img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=Node.js&logoColor=black" alt="node">
+                </td>
+                <td>
+                    <img src="https://img.shields.io/badge/Vue-4FC08D?style=flat-square&logo=Vue.js&logoColor=black" alt="vue">
+                    <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=black" alt="Djnago">
+                </td>
+            </tr>
+            <tr>
+                <th>RDBMS</th>
+                <td>
+                    <img src="https://img.shields.io/badge/Oracle-007396?style=flat-square&logo=Oracle&logoColor=white" alt="oracle">
+                    <img src="https://img.shields.io/badge/MariaDB-1F305F?style=flat-square&logo=MariaDBFoundation&logoColor=white" alt="mariadb">
+                    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="mysql">
+                    <img src="https://img.shields.io/badge/Cubrid-0?style=flat-square&logo=Cubrid&logoColor=white" alt="cub">
+                </td>
+                <td>
+                    <img src="https://img.shields.io/badge/Postgre-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white" alt="po">
+                </td>
+            </tr>
+            <tr>
+                <th>DevOps</th>
+                <td>
+                    <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white" alt="git">
+                    <img src="https://img.shields.io/badge/SVN-3E7FC1?style=flat-square&logo=SVN&logoColor=white" alt="svn">
+                    <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white" alt="docker">
+                    <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=Jenkins&logoColor=white" alt="jenkins">
+                <td>
+                    <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=Kubernetes&logoColor=white" alt="kubernetes">
+                    <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=AmazonWebServices&logoColor=white" alt="aws">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="educationHooks"></div>
+    <h1 class="title">Education.</h1>
+    <div class="education reveal">
+        <div class="content school">
+            <h3 class="title">학력사항</h3>
+            <div class="content">
+                <div class="high">
+                    <h4>포항세명고등학교 졸업</h4>
+                    <span>2015.03 ~ 2018.02</span>
+                </div>
+                <div class="university">
+                    <h4>대구가톨릭대학교 모바일소프트웨어전공 졸업</h4>
+                    <span>2018.03 ~ 2025.02</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h3 class="title">풀스택 개발자 양성 과정</h3>
+            <span>2023.07. ~ 2023.11</span>
+            <ul>
+                <li>Spring 기술 스택 및 심화학습</li>
+                <li>공공데이터 API 실습 및 개발</li>
+                <li>공통 프로젝트 - Web 기반 카페 메뉴 관리 시스템 구축</li>
+                <li>개인 프로젝트 - 카페 / 음식점 및 여석 확인 서비스 개발</li>
+                <li>팀 프로젝트 - 공공데이터를 스크래핑하여 교통사고 다발지역 분석 및 예방체계 구축</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3 class="title">교내 연구실 활동</h3>
+            <span>2024.03 ~ 2024.07</span>
+            <ul>
+                <li>엣지 컴퓨팅 노드 세미나 및 회의</li>
+                <li>재활용 자원( 페트병, 캔, 종이박스 등) 데이터셋 라벨링</li>
+                <li>실시간 얼굴 및 객체 인식을 위한 엣지노드 기반 비전 시스템 개발 ( 투명 페트병 회수기 )</li>
+                <li>에코스 플랫폼 연동 및 연구 관련 저널 논문 개재</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3 class="title">현장실습 - 리소프트</h3>
+            <span>2024.06. ~ 2024.08</span>
+            <ul>
+                <li>대구공고 동문검색 서비스 개발 ( 키오스크 용도 )
+                    <br>
+                    <a href="https://daegong-graduate.flash21.com/">https://daegong-graduate.flash21.com/</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3 class="title">스마트 웹 개발자 양성 과정</h3>
+            <span>2025.02. ~ 2025.08.05</span>
+            <ul>
+                <li>다양한 웹 사이트 클론코딩</li>
+                <li>주기마다 능력 단위 평가 진행</li>
+                <li>타자(TAZA) - 각종 API(KAKAO MAP, 길찾기, 키오스크 등)를 활용한 택시 호출 서비스 개발</li>
+                <li>KOBOOK - 공공데이터 API를 활용한 책 검색 웹 개발</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3 class="title">캡스톤</h3>
+            <span>2023.09. ~ 2024.06</span>
+            <ul>
+                <li>요구사항 분석 및 상세 설계 명세서 작성</li>
+                <li>RTSP를 사용해 웹캠 영상을 서버와 클라이언트에 연결</li>
+                <li>영상의 이상행위의 빈도를 확인하여, 같은 영상에서 일반 영상도 같은 빈도로 clip하여 데이터추출</li>
+                <li>교내 Expo 전시</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="projectHooks"></div>
+    <h1>Projects.</h1>
+    <div class="projects reveal">
+        <div class="content">
+            <a class="item" th:href="@{/}" style="color: black;">
+                <img src="/portfolio/assets/images/meltube.png" class="image" alt="타자">
+                <h3>멜튜브(meltube) 멜론 + 유튜브</h3>
+                <span>멜론처럼 음악을 검색하고 감상할 수 있는 기능과, 유튜브처럼 영상 콘텐츠를 탐색하고 재생할 수 있는 기능을 통합한 웹 기반 미디어 스트리밍 서비스입니다.</span></a>
+            <div class="img" style="margin-top: 4rem; margin-bottom: -4rem;">
+                <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+                <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+                <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+                <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="mysql">
+                <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=black" alt="spring">
+            </div>
+        </div>
+        <div class="content">
+            <div class="item">
+                <img src="/portfolio/assets/images/taza_1.png" class="image" alt="홈꾸">
+                <h3>홈꾸(homggoo)</h3>
+                <span>홈꾸(오늘의집 클론)는 커뮤니티 기반 인테리어 공유 플랫폼으로, 사용자가 게시글을 작성하고 댓글 및 좋아요 기능을 통해 소통할 수 있도록 구현하였습니다.</span>
+            </div>
+            <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+            <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+            <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+            <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="mysql">
+            <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=black" alt="spring">
+        </div>
+        <div class="content">
+            <div class="item">
+                <img src="/portfolio/assets/images/taza_1.png" class="image" alt="타자">
+                <h3>타자(TAZA) - 택시호출 웹 개발 프로젝트</h3>
+                <span>다양한 API를 활용하여 사용자가 편리하게 택시호출을 할 수 있게 다양한 기능들을 제공하는 택시 호출 서비스입니다. </span>
+            </div>
+
+            <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+            <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+            <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+        </div>
+        <div class="content">
+            <a class="item" th:href="@{/kobook}" style="color: black;">
+                <img src="/portfolio/assets/images/kobook.png" class="image" alt="이상행동">
+                <h3>코북 - 책 검색 3인 프로젝트</h3>
+                <span>공공데이터 API를 활용하였으며, 사용자에게 책 검색 순위 데이터를 가져와 목록을 보여주고 책을 검색할수 있는 웹 프로젝트</span>
+            </a>
+            <div class="img" style="margin-top: 4rem; margin-bottom: -4rem;">
+                <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+                <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+                <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+            </div>
+        </div>
+        <div class="content">
+            <div class="item">
+                <img src="/portfolio/assets/images/accident.png" class="image" alt="타자">
+                <h3>Localhost - 교통사고 지도 4인 프로젝트</h3>
+                <span>공공데이터를 스크래핑하여 교통사고 다발 지역을 분석하고 사고 건수를 시각화처리 프로젝트입니다.</span>
+            </div>
+            <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="html">
+            <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="css">
+            <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=black" alt="javascript">
+            <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="mysql">
+            <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=black" alt="spring">
+        </div>
+        <div class="content">
+            <div class="item">
+                <img src="/portfolio/assets/images/CCTV.png" class="image behavior" alt="이상행동">
+                <h3>캡스톤 - 이상행동 감지 4인 프로젝트</h3>
+                <span>
+                    Yolov6와, ai-hub 이상행동 데이터셋을 사용하여 학습했으며 이상행동시 바운딩박스가 변하여 신호를 알려주는 기능입니다.
+                </span>
+            </div>
+            <img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=Node.js&logoColor=black" alt="node">
+            <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=Vue.js&logoColor=black" alt="vue">
+            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white" alt="docker">
+        </div>
+
+    </div>
+    <div id="certificateHooks"></div>
+    <h1>Certificates</h1>
+    <div class="certificates">
+        <div class="content">
+            <h3>SQLD</h3>
+            <span>한국데이터산업진흥원</span>
+        </div>
+        <div class="content">
+            <h3>정보처리기사</h3>
+            <span>한국산업인력공단</span>
+        </div>
+    </div>
+</main>
+<footer id="footer">
+    <div class="copyright-container"><p>&copy; 2025 JS All rights reserved</p></div>
+</footer>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    /*    const alphabet = [
+            "a","b","c","d","e","f",
+            "1","2","3","4","5","6","7","8","9",
+        ];*/
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const $topAnchor = document.getElementById('topAnchor');
+    const navbar = document.querySelector('#navbar');
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const $menuToggle = document.getElementById('menuToggle');
+    const $navMenu = document.getElementById('navMenu');
+    const menuLinks = document.querySelectorAll('#navMenu a');
+
+    // 스크롤이 발생하였을 때
+    window.addEventListener('scroll', () => {
+        // 문서 기준으로 세로축으로 스크롤된 값이 50px을 초과하면
+        if (document.documentElement.scrollTop > 50) {
+            // $topAnchor에 visible 클래스를 추가하여 보이게 하고,
+            $topAnchor.classList.add('visible');
+        } else {
+            // 아니면 $topAnchor에 visible 클래스를 제거하여 숨김
+            $topAnchor.classList.remove('visible');
+        }
+
+        if (window.scrollY > navbarHeight) {
+            navbar.classList.add('navbar-color');
+        } else {
+            navbar.classList.remove('navbar-color');
+        }
+    });
+
+    $menuToggle.addEventListener('click', () => {
+        $navMenu.classList.toggle('active');
+        menuLinks.forEach(item => {
+            item.addEventListener('click', () => {
+                $navMenu.classList.remove('active');
+            })
+        })
+    });
+
+/*    navLogo.addEventListener('click', () => {
+
+    })*/
+
+</script>
+
+</body>
+</html>
