@@ -41,4 +41,9 @@ public class HomeController {
     public String getKobook(HttpSession session) {
         return "kobook/index";
     }
+
+    @RequestMapping(value = "/taza", method = RequestMethod.GET)
+    public String getTaza(HttpSession session) {
+        return "taza/index";
+    }
 }
